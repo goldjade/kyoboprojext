@@ -1,8 +1,13 @@
-import logo from "./logo.svg";
-import "./App.css";
+import { Outlet } from "react-router-dom";
+import SearchHeaer from "./components/SearchHeaer";
 
 function App() {
-    return <></>;
+    return (
+        <>
+            <SearchHeaer />
+            <Outlet />
+        </>
+    );
 }
 
 export default App;
