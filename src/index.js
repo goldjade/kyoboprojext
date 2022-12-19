@@ -4,6 +4,9 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import NotFound from "./pages/NotFound";
+import Books from "./pages/Books";
+import BookDetail from "./pages/BookDetail";
 
 const router = createBrowserRouter([
     {
