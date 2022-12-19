@@ -1,18 +1,19 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FaSearch } from "react-icons/fa";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 const SearchHeaer = () => {
     const navigate = useNavigate();
+    let { keyword } = useParams();
     const [text, setText] = useState("");
     const handleChange = (e) => {
         setText(e.target.value);
-        console.log(text);
     };
     const handleSubmit = (e) => {
         e.preventDefault();
         navigate(`/books/${text}`);
     };
+    useEffect(() => setText(keyword || ""), [keyword]);
 
     return (
         <header className="flex flex-col items-center py-6 border-b">
@@ -24,6 +25,7 @@ const SearchHeaer = () => {
                     <input
                         type="text"
                         placeholder="검색어를 입력하세요"
+                        value={text}
                         className="w-11/12 border border-blue-500 rounded-full outline-blue-500 pl-2"
                         onChange={handleChange}
                     />
